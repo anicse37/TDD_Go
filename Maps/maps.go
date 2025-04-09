@@ -66,3 +66,9 @@ func (m MyMaps) Delete(key int, value string) (MyMaps, error) {
 }
 
 /*---------------------------------------------------*/
+func (m MyMaps) Update(key int, value string) MyMaps {
+	m[key] = value
+	return m
+}
+
+/*---------------------------------------------------*/

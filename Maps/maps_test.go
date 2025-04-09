@@ -40,6 +40,12 @@ func TestAdd(t *testing.T) {
 			t.Errorf("Got %v || Want %v ", got, want)
 		}
 	})
+	/*
+	*
+	*The code below repesents the error
+	*
+	 */
+
 	// t.Run("Old Place", func(t *testing.T) {
 	// 	M4 := maps.MyMaps{1: "One", 2: "Two", 3: "Three"}
 	// 	got, err := M4.Add(2, "Two")
@@ -51,7 +57,6 @@ func TestAdd(t *testing.T) {
 	// 	if !maps.AreMapsSame(got, want) {
 	// 		t.Errorf("Got %v || Want %v ", got, want)
 	// 	}
-
 	// })
 }
 
@@ -67,6 +72,17 @@ func TestDelete(t *testing.T) {
 		t.Errorf("Got %v || Want %v ", got, want)
 	}
 
+}
+
+/*---------------------------------------------------*/
+func TestUpdate(t *testing.T) {
+	M6 := maps.MyMaps{1: "One", 2: "Two", 3: "Three"}
+	got := M6.Update(1, "Two")
+	want := maps.MyMaps{1: "Two", 2: "Two", 3: "Three"}
+	if !maps.AreMapsSame(got, want) {
+		t.Errorf("Got %v || Want %v ", got, want)
+
+	}
 }
 
 /*---------------------------------------------------*/
