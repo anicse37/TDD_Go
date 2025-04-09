@@ -2,66 +2,71 @@ package maps_test
 
 import (
 	maps "aniket/Maps"
-	"fmt"
 	"testing"
 )
 
-func TestMaps(t *testing.T) {
-	map1 := map[int]string{1: "My", 2: "name", 3: "is", 4: "Aniket"}
-	got := maps.Mapfunction("Aniket", map1)
+/*---------------------------------------------------*/
+
+func TestMap(t *testing.T) {
+	M1 := maps.MyMaps{1: "One", 2: "Two"}
+	got := M1.TestMap()
+	want := maps.MyMaps{1: "One", 2: "Two"}
+	if !(maps.AreMapsSame(got, want)) {
+	}
+}
+
+/*---------------------------------------------------*/
+func TestSearch(t *testing.T) {
+	M2 := maps.MyMaps{1: "One", 2: "Two", 3: "Three"}
+	got, err := M2.Search("Two")
 	want := true
 	if got != want {
-		t.Errorf("got %v want %v", got, want)
+		t.Fatal(err)
 	}
 }
-func TestSreachInMaps(t *testing.T) {
-	maps3 := maps.MyMaps{1: "one", 2: "two", 3: "three", 4: "four"}
-	t.Run("Found", func(t *testing.T) {
-		got := maps3.Found("two")
-		want := true
-		if got != want {
-			t.Errorf("got %v want %v", got, want)
-		}
-	})
-	t.Run("Not Found", func(t *testing.T) {
-		got := maps3.Found("Five")
-		want := false
-		if got != want {
-			t.Errorf("got %v want %v", got, want)
-		}
-	})
-}
-func TestAddInMaps(t *testing.T) {
-	map2 := maps.MyMaps{1: "one"}
-	t.Run("Adding", func(t *testing.T) {
-		got, _ := map2.AddValue(2, "two")
-		want := maps.MyMaps{1: "one", 2: "two"}
-		if !maps.AreMapsEqual(got, want) {
-			t.Errorf("got %v want %v", got, want)
-		}
-	})
-	t.Run("Already Exists", func(t *testing.T) {
-		got, err := map2.AddValue(2, "one")
+
+/*---------------------------------------------------*/
+
+func TestAdd(t *testing.T) {
+	t.Run("New Place", func(t *testing.T) {
+
+		M3 := maps.MyMaps{1: "One", 2: "Two", 3: "Three"}
+		got, err := M3.Add(4, "Four")
 		if err != nil {
-			fmt.Println("This function passes")
-			t.Errorf("%v", maps.ErrorAlreadyExist)
+			t.Fatal(err)
 		}
-		want := maps.MyMaps{1: "one", 2: "one"}
-		if !maps.AreMapsEqual(got, want) {
-			t.Errorf("got %v want %v", got, want)
+		want := maps.MyMaps{1: "One", 2: "Two", 3: "Three", 4: "Four"}
+		if !maps.AreMapsSame(got, want) {
+			t.Errorf("Got %v || Want %v ", got, want)
 		}
 	})
+	// t.Run("Old Place", func(t *testing.T) {
+	// 	M4 := maps.MyMaps{1: "One", 2: "Two", 3: "Three"}
+	// 	got, err := M4.Add(2, "Two")
+	// 	if err != nil {
+	// 		t.Fatal(err)
+	// 	}
+	// 	want := maps.MyMaps{1: "One", 2: "Two", 3: "Three"}
+
+	// 	if !maps.AreMapsSame(got, want) {
+	// 		t.Errorf("Got %v || Want %v ", got, want)
+	// 	}
+
+	// })
 }
 
+/*---------------------------------------------------*/
 func TestDelete(t *testing.T) {
-	maps4 := maps.MyMaps{1: "one", 2: "two", 3: "three"}
-	got, err := maps4.Delete(3)
+	M5 := maps.MyMaps{1: "One", 2: "Two", 3: "Three"}
+	got, err := M5.Delete(2, "Two")
 	if err != nil {
-		t.Fatalf(maps.ErrorNotFound.Error())
+		t.Fatal(err)
 	}
-	want := maps.MyMaps{1: "one", 2: "two"}
-	if !maps.AreMapsEqual(got, want) {
-		t.Errorf("got %v want %v", got, want)
+	want := maps.MyMaps{1: "One", 3: "Three"}
+	if !maps.AreMapsSame(got, want) {
+		t.Errorf("Got %v || Want %v ", got, want)
+	}
 
-	}
 }
+
+/*---------------------------------------------------*/
