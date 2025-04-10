@@ -1,11 +1,16 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
-	"os"
+	"io"
 )
 
+func Greet(write io.Writer, name string) {
+	fmt.Fprintf(write, "Hello, %s", name)
+}
 func main() {
-	name := "Aniket"
-	fmt.Fprintf(os.Stdout, "My name is %s\n", name)
+	buff := bytes.Buffer{}
+	Greet(&buff, "Slim Shady")
+	fmt.Println(buff.String())
 }
