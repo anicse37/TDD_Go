@@ -48,10 +48,21 @@ TDD/
 
 | Folder             | Description                            |
 |--------------------|----------------------------------------|
-| `HelloWorld/`      | The humble beginning: Hello World test |
-| `integers/`        | Adding integers and writing simple tests |
-| `Iteration/`       | Practicing loops with TDD              |
-| `Dockerfile`       | Containerizing the project (because why not?) |
+|## 🚀 Topics Covered
+
+| Folder                  | Description                                                |
+|--------------------------|------------------------------------------------------------|
+| `HelloWorld/`            | The humble beginning: Hello World test                     |
+| `Integers/`              | Adding integers and writing simple tests                   |
+| `Iteration/`             | Practicing loops with TDD                                  |
+| `Arrays/`                | Exploring array operations and writing tests for them      |
+| `Dependency_Injection/`  | Understanding and applying dependency injection in Go      |
+| `Maps/`                  | Using maps and testing key existence and values            |
+| `Mocking/`               | Learning how to use mocks to isolate test logic            |
+| `Pointers_Errors/`       | Handling pointers and custom error types with tests        |
+| `Struct/`                | Defining and testing Go structs                            |
+| `Dockerfile`             | Containerizing the project (because why not?)              |
+
 
 > More folders and tests will be added as I progress through the chapters.
 
