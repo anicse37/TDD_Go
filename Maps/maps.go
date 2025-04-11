@@ -50,7 +50,7 @@ func (m MyMaps) Add(key int, value string) (MyMaps, error) {
 	return m, nil
 }
 
-/*---------------------------------------------------*/
+/*--------------------------------------------------*/
 func (m MyMaps) Delete(key int, value string) (MyMaps, error) {
 	newM5 := MyMaps{}
 	for i, _ := range m {
