@@ -1,7 +1,7 @@
 package integers_test
 
 import (
-	"aniket/integers"
+	integers "aniket/Integers"
 	"testing"
 )
 

@@ -18,3 +18,19 @@ Go!`
 	}
 
 }
+
+func TestSleepCountdown(t *testing.T) {
+	buffer := &bytes.Buffer{}
+	SleepCountdown(buffer, 3)
+	got := buffer.String()
+	want := `Write
+Sleep
+Write
+Sleep
+Write
+Sleep
+`
+	if got != want {
+		t.Errorf("Got %v || Want %v", got, want)
+	}
+}
