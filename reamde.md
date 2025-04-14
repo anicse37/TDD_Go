@@ -12,8 +12,12 @@ TDD/
 ├── Arrays/
 │   ├── Arrays.go
 │   ├── Arrays_test.go
+├── Concurrency/
+│   ├── concurrency.go
+│   ├── concurrency_test.go
 ├── Dependency_Injection/
-│   ├── di.go
+│   ├── dependency_test.go
+│   ├── dependency.go
 ├── HelloWorld/
 │   ├── home.go
 │   ├── home_test.go
@@ -32,6 +36,12 @@ TDD/
 ├── Pointers_Errors/
 │   ├── pointer.go
 │   ├── pointer_test.go
+├── Reflection/
+│   ├── reflection.go
+│   ├── reflection_test.go
+├── Select/
+│   ├── select.go
+│   ├── select_test.go
 ├── Struct/
 │   ├── struct.go
 │   ├── struct_test.go
@@ -42,6 +52,7 @@ TDD/
 ├── test.go
 
 
+
 ---------------------------------------
 
 ## 🚀 Topics Covered
@@ -50,16 +61,21 @@ TDD/
 |--------------------|----------------------------------------|
 |## 🚀 Topics Covered
 
+## 🚀 Topics Covered
+
 | Folder                  | Description                                                |
 |--------------------------|------------------------------------------------------------|
+| `Arrays/`                | Exploring array operations and writing tests for them      |
+| `Concurrency/`           | Using goroutines and channels to write concurrent programs |
+| `Dependency_Injection/`  | Understanding and applying dependency injection in Go      |
 | `HelloWorld/`            | The humble beginning: Hello World test                     |
 | `Integers/`              | Adding integers and writing simple tests                   |
 | `Iteration/`             | Practicing loops with TDD                                  |
-| `Arrays/`                | Exploring array operations and writing tests for them      |
-| `Dependency_Injection/`  | Understanding and applying dependency injection in Go      |
 | `Maps/`                  | Using maps and testing key existence and values            |
 | `Mocking/`               | Learning how to use mocks to isolate test logic            |
 | `Pointers_Errors/`       | Handling pointers and custom error types with tests        |
+| `Reflection/`            | Dynamically inspecting and manipulating values and types   |
+| `Select/`                | Handling multiple channel operations with the `select`     |
 | `Struct/`                | Defining and testing Go structs                            |
 | `Dockerfile`             | Containerizing the project (because why not?)              |
 
@@ -73,4 +89,11 @@ TDD/
 To run all tests:
 
 ```bash
-sudo docker run-t testing.demo
+sudo docker build -t testing.demo .
+sudo docker run -t testing.demo
+```
+After function is finished run these comands to close the running image.
+
+```bash
+sudo docker rm 'container_id'
+sudo docker rmi 'testing.demo'
