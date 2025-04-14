@@ -4,6 +4,7 @@ import (
 	concurrency "aniket/Concurrency"
 	"reflect"
 	"testing"
+	"time"
 )
 
 func MockWebsiteChecker(website string) bool {
@@ -26,4 +27,20 @@ func TestWebsiteTester(t *testing.T) {
 		t.Errorf("Got %v || Want %v \n", got, want)
 	}
 
+}
+
+func slowStubWebsiteChecker(_ string) bool {
+	time.Sleep(20 * time.Millisecond)
+	return true
+}
+
+func BenchmarkTest(b *testing.B) {
+	urls := make([]string, 100)
+	for i := 0; i < len(urls); i++ {
+		urls[i] = "www.somewebsite.com"
+	}
+	b.ResetTimer()
+	for i := 0; i <= b.N; i++ {
+		concurrency.Checker(slowStubWebsiteChecker, urls)
+	}
 }
