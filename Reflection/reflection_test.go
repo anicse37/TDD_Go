@@ -6,22 +6,19 @@ import (
 	"testing"
 )
 
-func TestWalk(t *testing.T) {
-
+func TestReflection(t *testing.T) {
 	cases := []struct {
-		Name          string
-		Input         interface{}
-		ExpectedCalls []string
+		Name   string
+		Input  interface{}
+		Result []string
 	}{
 		{
-			"struct with one string field",
-			struct {
-				Name string
-			}{"Aniket"},
+			"Single string passing",
+			"Aniket",
 			[]string{"Aniket"},
 		},
 		{
-			"struct with one string field",
+			"String passing",
 			struct {
 				Name string
 				City string
@@ -29,31 +26,38 @@ func TestWalk(t *testing.T) {
 			[]string{"Aniket", "Mohali"},
 		},
 		{
-			"struct with slice field",
-			[]struct { //struct
-				Name string
-				Age  int
-			}{
-				{"Aniket", 23}, //slice and int
-				{"Gtech", 25},
-				{"QWE", 24},
-			},
-			[]string{"Aniket", "23", "Gtech", "25", "QWE", "24"},
+			"Single int passing",
+			23,
+			[]string{"23"},
 		},
 		{
-			"struct with one string field",
-			2,
-			[]string{"2"},
+			"String passing",
+			struct {
+				Name string
+				Age  int
+			}{"Aniket", 23},
+			[]string{"Aniket", "23"},
+		},
+		{
+			"Slice of structure passing",
+			[]struct {
+				Name string
+				City string
+			}{
+				{"Aniket", "Mohali"},
+				{"Gtech", "Mohali"},
+			},
+			[]string{"Aniket", "Mohali", "Gtech", "Mohali"},
 		},
 	}
-	for _, test := range cases {
-		t.Run(test.Name, func(t *testing.T) {
+	for i := 0; i < len(cases); i++ {
+		t.Run(cases[i].Name, func(t *testing.T) {
 			var got []string
-			reflection.Walk(test.Input, func(input string) {
+			reflection.Walk(cases[i].Input, func(input string) {
 				got = append(got, input)
 			})
-			if !reflect.DeepEqual(got, test.ExpectedCalls) {
-				t.Errorf("got %v, want %v", got, test.ExpectedCalls)
+			if !reflect.DeepEqual(got, cases[i].Result) {
+				t.Errorf("Got %v || Want %v \n", got, cases[i].Result)
 			}
 		})
 	}
