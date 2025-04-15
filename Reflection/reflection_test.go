@@ -21,8 +21,22 @@ func TestWalk(t *testing.T) {
 			}{"Aniket", "Mohali"},
 			[]string{"Aniket", "Mohali"},
 		},
+		{
+			"struct with one string field",
+			struct {
+				Name string
+			}{"Aniket"},
+			[]string{"Aniket"},
+		},
+		{
+			"struct with int field",
+			struct {
+				Name string
+				Age  int
+			}{"Aniket", 23},
+			[]string{"Aniket"},
+		},
 	}
-
 	for _, test := range cases {
 		t.Run(test.Name, func(t *testing.T) {
 			var got []string
