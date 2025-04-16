@@ -45,6 +45,9 @@ TDD/
 ├── Struct/
 │   ├── struct.go
 │   ├── struct_test.go
+├── Sync/
+│   ├── sync.go
+│   ├── sync_test.go
 ├── Dockerfile
 ├── go.mod
 ├── link.txt
@@ -67,6 +70,7 @@ TDD/
 |--------------------------|------------------------------------------------------------|
 | `Arrays/`                | Exploring array operations and writing tests for them      |
 | `Concurrency/`           | Using goroutines and channels to write concurrent programs |
+| `Context/`               | Using Context to cancel the function un no longer needed   |
 | `Dependency_Injection/`  | Understanding and applying dependency injection in Go      |
 | `HelloWorld/`            | The humble beginning: Hello World test                     |
 | `Integers/`              | Adding integers and writing simple tests                   |
@@ -77,6 +81,7 @@ TDD/
 | `Reflection/`            | Dynamically inspecting and manipulating values and types   |
 | `Select/`                | Handling multiple channel operations with the `select`     |
 | `Struct/`                | Defining and testing Go structs                            |
+| `Sync/`                  | Using sync, waitgroup and mutex to stop race condition     |
 | `Dockerfile`             | Containerizing the project (because why not?)              |
 
 
