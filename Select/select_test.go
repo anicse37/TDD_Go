@@ -9,18 +9,17 @@ import (
 )
 
 func TestSpeed(t *testing.T) {
-	url1 := "www.youtube.com"
-	url2 := "www.google.com"
-	got := selecturl.Racer(url1, url2)
-	want := url2
-	if got != want {
-		t.Errorf("Got %v || Want %v\n", got, want)
-	}
-}
+	t.Run("Normal Test", func(t *testing.T) {
 
-/*-------------------------------------------------------------------------------------------------*/
+		url1 := "www.youtube.com"
+		url2 := "www.google.com"
+		got := selecturl.Racer(url1, url2)
+		want := url2
+		if got != want {
+			t.Errorf("Got %v || Want %v\n", got, want)
+		}
+	})
 
-func TestRacer(t *testing.T) {
 	t.Run("Within 10 sec", func(t *testing.T) {
 
 		slowServer := makeDelayedServer(20 * time.Millisecond)
@@ -41,7 +40,7 @@ func TestRacer(t *testing.T) {
 	})
 	t.Run("More than 10 sec", func(t *testing.T) {
 		/*To see the program in action*/
-		/*Change time below from 1 and 2 seconds to 11 and 12 seconds respectively*/
+		/*Change time below from 1 and 2 seconds to 12 and 11 seconds respectively*/
 		slowServer := makeDelayedServer(2 * time.Second)
 		fastServer := makeDelayedServer(1 * time.Second)
 		defer slowServer.Close()
@@ -60,6 +59,8 @@ func TestRacer(t *testing.T) {
 		}
 	})
 }
+
+/*-------------------------------------------------------------------------------------------------*/
 
 func makeDelayedServer(delay time.Duration) *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

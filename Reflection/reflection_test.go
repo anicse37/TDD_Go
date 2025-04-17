@@ -7,6 +7,13 @@ import (
 )
 
 func TestReflection(t *testing.T) {
+	type channelStruct struct {
+		Name string
+		Age  int
+	}
+	function := func() (channelStruct, channelStruct) {
+		return channelStruct{"one", 1}, channelStruct{"three", 3}
+	}
 	cases := []struct {
 		Name   string
 		Input  interface{}
@@ -49,7 +56,59 @@ func TestReflection(t *testing.T) {
 			},
 			[]string{"Aniket", "Mohali", "Gtech", "Mohali"},
 		},
+		{
+			"Using Functions",
+			function,
+			[]string{"one", "1", "three", "3"},
+		},
 	}
+	t.Run("Test for Channles", func(t *testing.T) {
+		var got []string
+		myChannel := make(chan channelStruct)
+		go func() {
+			myChannel <- channelStruct{"Aniket", 23}
+			myChannel <- channelStruct{"Golang", 16}
+			close(myChannel)
+		}()
+		want := []string{"Aniket", "23", "Golang", "16"}
+		reflection.Walk(myChannel, func(input string) {
+			got = append(got, input)
+		})
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("Got %v || Want %v \n", got, want)
+		}
+	})
+	t.Run("with function", func(t *testing.T) {
+		aFunction := func() (channelStruct, channelStruct) {
+			return channelStruct{"ten", 10}, channelStruct{"six", 6}
+		}
+
+		var got []string
+		want := []string{"ten", "10", "six", "6"}
+
+		reflection.Walk(aFunction, func(input string) {
+			got = append(got, input)
+		})
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v, want %v", got, want)
+		}
+	})
+	t.Run("with maps", func(t *testing.T) {
+		aMap := map[string]string{
+			"Aniket": "Mohali",
+			"Gtech":  "Chandigarh",
+		}
+
+		var got []string
+		reflection.Walk(aMap, func(input string) {
+			got = append(got, input)
+		})
+
+		AreMapsEqual(t, got, "Mohali")
+		AreMapsEqual(t, got, "Chandigarh")
+	})
+	/*--------------------------------------------------------------------------*/
 	for i := 0; i < len(cases); i++ {
 		t.Run(cases[i].Name, func(t *testing.T) {
 			var got []string
@@ -60,5 +119,17 @@ func TestReflection(t *testing.T) {
 				t.Errorf("Got %v || Want %v \n", got, cases[i].Result)
 			}
 		})
+	}
+}
+func AreMapsEqual(t testing.TB, haystack []string, needle string) {
+	t.Helper()
+	contains := false
+	for _, x := range haystack {
+		if x == needle {
+			contains = true
+		}
+	}
+	if !contains {
+		t.Errorf("expected %v to contain %q but it didn't", haystack, needle)
 	}
 }

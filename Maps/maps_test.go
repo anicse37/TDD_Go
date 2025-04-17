@@ -42,7 +42,7 @@ func TestAdd(t *testing.T) {
 	})
 	/*
 	*
-	*The code below will give an error
+	*The code below will give an error(Intentional)
 	*
 	 */
 
