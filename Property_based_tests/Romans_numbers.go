@@ -27,7 +27,8 @@ var allRomanNumbers = []RomanNumbers{
 	{1, "I"},
 }
 
-func ConvertToRoman(numb int) string {
+func ConvertToRoman(numb uint16) string {
+	numb1 := int(numb)
 	var result strings.Builder
 	start := time.Now()
 	for _, keys := range allRomanNumbers {
@@ -35,9 +36,9 @@ func ConvertToRoman(numb int) string {
 			fmt.Println("Too much time")
 			break
 		}
-		for numb >= keys.Value {
+		for numb1 >= keys.Value {
 			result.WriteString(keys.Symbol)
-			numb -= keys.Value
+			numb1 -= keys.Value
 		}
 
 	}

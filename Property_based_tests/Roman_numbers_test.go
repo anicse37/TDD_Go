@@ -2,11 +2,10 @@ package propertybasedtests_test
 
 import (
 	propertybasedtests "aniket/Property_based_tests"
+	"testing/quick"
 
 	"fmt"
-	"math/rand"
 	"testing"
-	"time"
 )
 
 func TestRomanNumbers(t *testing.T) {
@@ -31,7 +30,7 @@ func TestRomanNumbers(t *testing.T) {
 	/*------------------------------------------------------------------*/
 	for _, values := range cases {
 		t.Run(values.Desprition, func(t *testing.T) {
-			got := propertybasedtests.ConvertToRoman(values.Numb)
+			got := propertybasedtests.ConvertToRoman(uint16(values.Numb))
 			Compare(got, values.Want, t)
 		})
 	}
@@ -43,18 +42,25 @@ func TestRomanNumbers(t *testing.T) {
 
 		})
 	}
-	/*------------------------------------------------------------------*/
-	t.Run("Testing both functions", func(t *testing.T) {
+}
 
-		rand.Seed(time.Now().UnixNano())
-		numeric := rand.Intn(3999) + 1
-		roman := propertybasedtests.ConvertToRoman(numeric)
-		newNumeric := propertybasedtests.ConvertToNumeric(roman)
-		if newNumeric != numeric {
-			t.Error("Something is Wrong")
+/*------------------------------------------------------------------*/
+func TestPropertiesOfFinctions(t *testing.T) {
+	assertion := func(numeric uint16) bool {
+		if numeric > 3999 {
+			return true
 		}
+		t.Log("testing", numeric)
+		roman := propertybasedtests.ConvertToRoman(numeric)
+		fromRoman := propertybasedtests.ConvertToNumeric(roman)
+		return fromRoman == int(numeric)
+	}
 
-	})
+	if err := quick.Check(assertion, &quick.Config{
+		MaxCount: 1000,
+	}); err != nil {
+		t.Error("failed checks", err)
+	}
 
 }
 
