@@ -36,6 +36,9 @@ TDD/
 ├── Pointers_Errors/
 │   ├── pointer.go
 │   ├── pointer_test.go
+├── Property_based_tests/
+│   ├── Roman_numbers.go
+│   ├── Roman_numbers_test.go.go
 ├── Reflection/
 │   ├── reflection.go
 │   ├── reflection_test.go
@@ -78,6 +81,7 @@ TDD/
 | `Maps/`                  | Using maps and testing key existence and values            |
 | `Mocking/`               | Learning how to use mocks to isolate test logic            |
 | `Pointers_Errors/`       | Handling pointers and custom error types with tests        |
+| `Property_based_tests/`  | Creating functions that uses the quick functionality in go |
 | `Reflection/`            | Dynamically inspecting and manipulating values and types   |
 | `Select/`                | Handling multiple channel operations with the `select`     |
 | `Struct/`                | Defining and testing Go structs                            |
