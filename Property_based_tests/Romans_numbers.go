@@ -43,3 +43,16 @@ func ConvertToRoman(numb int) string {
 	}
 	return result.String()
 }
+
+func ConvertToNumeric(str string) int {
+	var numeric = 0
+
+	for _, numeral := range allRomanNumbers {
+		for strings.HasPrefix(str, numeral.Symbol) {
+			numeric += numeral.Value
+			str = strings.TrimPrefix(str, numeral.Symbol)
+		}
+	}
+
+	return numeric
+}
