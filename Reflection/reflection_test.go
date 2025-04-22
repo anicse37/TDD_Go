@@ -121,6 +121,9 @@ func TestReflection(t *testing.T) {
 		})
 	}
 }
+
+/*----------------------------------------------------------------------------------*/
+//To check if 2 maps are equal
 func AreMapsEqual(t testing.TB, haystack []string, needle string) {
 	t.Helper()
 	contains := false
