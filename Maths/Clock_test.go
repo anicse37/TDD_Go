@@ -20,7 +20,9 @@ func TestSecondsInRadians(t *testing.T) {
 	for _, values := range cases {
 		t.Run(clockFace.TestName(values.time), func(t *testing.T) {
 			got := clockFace.SecondsInRadians(values.time)
-			compare(got, values.angle, t)
+			if !compare(got, values.angle) {
+				t.Fatalf("Got %v || Want %v ", got, values.angle)
+			}
 		})
 	}
 }
@@ -49,24 +51,11 @@ func TestSecodHandPoint(t *testing.T) {
 
 /*---------------------------------------------------------------------------*/
 func roughlyEqualTo(a, b clockFace.Point) bool {
-	return compare2(a.X, b.X) && compare2(a.Y, b.Y)
+	return compare(a.X, b.X) && compare(a.Y, b.Y)
 }
 
 /*---------------------------------------------------------------------------*/
-func compare(got, want float64, t *testing.T) {
-	got *= 100
-	temp := int(got)
-	got = float64(temp) / 100
-	want *= 100
-	temp = int(want)
-	want = float64(temp) / 100
-	if got != want {
-		t.Fatalf("Got %v || Want %v ", got, want)
-	}
-}
-
-/*---------------------------------------------------------------------------*/
-func compare2(got, want float64) bool {
+func compare(got, want float64) bool {
 	got *= 100
 	temp := int(got)
 	got = float64(temp) / 100
