@@ -27,7 +27,6 @@ func SecodHandPoint(t time.Time) Point {
 	y := math.Cos(angle)
 	return Point{x, y}
 }
-
 func SecondsInRadians(t time.Time) float64 {
 	return (math.Pi / (30 / (float64(t.Second()))))
 }

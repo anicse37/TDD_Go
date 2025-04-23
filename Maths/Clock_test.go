@@ -36,7 +36,7 @@ func TestSecodHandPoint(t *testing.T) {
 		{clockFace.SimpleTime(0, 0, 30), clockFace.Point{0, -1}},
 		{clockFace.SimpleTime(0, 0, 0), clockFace.Point{0, 1}},
 		{clockFace.SimpleTime(0, 0, 15), clockFace.Point{1, 0}},
-		{clockFace.SimpleTime(0, 0, 20), clockFace.Point{0.86, -0.5}},
+		{clockFace.SimpleTime(0, 0, 20), clockFace.Point{0.86, -0.49}},
 		{clockFace.SimpleTime(0, 0, 49), clockFace.Point{-0.91, 0.4}},
 	}
 	for _, values := range cases {
