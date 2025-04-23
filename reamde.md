@@ -79,6 +79,7 @@ TDD/
 | `Integers/`              | Adding integers and writing simple tests                   |
 | `Iteration/`             | Practicing loops with TDD                                  |
 | `Maps/`                  | Using maps and testing key existence and values            |
+| `Maths/`                 | Using Math's functions, creating Clock with SVJ/XML file   |
 | `Mocking/`               | Learning how to use mocks to isolate test logic            |
 | `Pointers_Errors/`       | Handling pointers and custom error types with tests        |
 | `Property_based_tests/`  | Creating functions that uses the quick functionality in go |

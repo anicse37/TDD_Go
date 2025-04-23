@@ -41,7 +41,7 @@ func TestSecodHandPoint(t *testing.T) {
 	}
 	for _, values := range cases {
 		t.Run(NameTest(values.time), func(t *testing.T) {
-			got := clockFace.SecodHandPoint(values.time)
+			got := clockFace.SecondsHandPoint(values.time)
 			if !roughlyEqualTo(got, values.point) {
 				t.Fatalf("Got %v || Want %v \n", got, values.point)
 			}
