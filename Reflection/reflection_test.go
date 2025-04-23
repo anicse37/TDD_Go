@@ -22,16 +22,16 @@ func TestReflection(t *testing.T) {
 	}{
 		{
 			"Single string passing",
-			"github.com/anicse37/TDD_Go",
-			[]string{"github.com/anicse37/TDD_Go"},
+			"Aniket",
+			[]string{"Aniket"},
 		},
 		{
 			"String passing",
 			struct {
 				Name string
 				City string
-			}{"github.com/anicse37/TDD_Go", "Mohali"},
-			[]string{"github.com/anicse37/TDD_Go", "Mohali"},
+			}{"Aniket", "Mohali"},
+			[]string{"Aniket", "Mohali"},
 		},
 		{
 			"Single int passing",
@@ -43,8 +43,8 @@ func TestReflection(t *testing.T) {
 			struct {
 				Name string
 				Age  int
-			}{"github.com/anicse37/TDD_Go", 23},
-			[]string{"github.com/anicse37/TDD_Go", "23"},
+			}{"Aniket", 23},
+			[]string{"Aniket", "23"},
 		},
 		{
 			"Slice of structure passing",
@@ -52,10 +52,10 @@ func TestReflection(t *testing.T) {
 				Name string
 				City string
 			}{
-				{"github.com/anicse37/TDD_Go", "Mohali"},
+				{"Aniket", "Mohali"},
 				{"Gtech", "Mohali"},
 			},
-			[]string{"github.com/anicse37/TDD_Go", "Mohali", "Gtech", "Mohali"},
+			[]string{"Aniket", "Mohali", "Gtech", "Mohali"},
 		},
 		{
 			"Using Functions",
@@ -67,11 +67,11 @@ func TestReflection(t *testing.T) {
 		var got []string
 		myChannel := make(chan channelStruct)
 		go func() {
-			myChannel <- channelStruct{"github.com/anicse37/TDD_Go", 23}
+			myChannel <- channelStruct{"Aniket", 23}
 			myChannel <- channelStruct{"Golang", 16}
 			close(myChannel)
 		}()
-		want := []string{"github.com/anicse37/TDD_Go", "23", "Golang", "16"}
+		want := []string{"Aniket", "23", "Golang", "16"}
 		reflection.Walk(myChannel, func(input string) {
 			got = append(got, input)
 		})
@@ -97,8 +97,8 @@ func TestReflection(t *testing.T) {
 	})
 	t.Run("with maps", func(t *testing.T) {
 		aMap := map[string]string{
-			"github.com/anicse37/TDD_Go": "Mohali",
-			"Gtech":                      "Chandigarh",
+			"Aniket": "Mohali",
+			"Gtech":  "Chandigarh",
 		}
 
 		var got []string
@@ -122,6 +122,8 @@ func TestReflection(t *testing.T) {
 		})
 	}
 }
+
+/*--------------------------------------------------------------------------*/
 func AreMapsEqual(t testing.TB, haystack []string, needle string) {
 	t.Helper()
 	contains := false
