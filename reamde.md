@@ -58,17 +58,8 @@ TDD/
 ├── test.go
 
 
-
----------------------------------------
-
 ## 🚀 Topics Covered
-
-| Folder             | Description                            |
-|--------------------|----------------------------------------|
-|## 🚀 Topics Covered
-
-## 🚀 Topics Covered
-
+|---------------------------------------------------------------------------------------|
 | Folder                   | Description                                                |
 |--------------------------|------------------------------------------------------------|
 | `Arrays/`                | Exploring array operations and writing tests for them      |
@@ -100,10 +91,10 @@ To run all tests:
 
 ```bash
 sudo docker build -t testing.demo .
-sudo docker run -t testing.demo
+sudo docker run --rm testing.demo
 ```
 After function is finished run these comands to close the running image.
 
 ```bash
-sudo docker rm 'container_id'
+
 sudo docker rmi 'testing.demo'
