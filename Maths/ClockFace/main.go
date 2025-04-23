@@ -9,8 +9,11 @@ import (
 
 /*-----------------------------------------------------------------------------------------------------*/
 func main() {
-
-	t := time.Now()
-	clockFace.SVGWritter(os.Stdout, t)
-
+	for {
+		f, _ := os.Create("clock.svg")
+		t := time.Now()
+		clockFace.SVGWritter(f, t)
+		f.Close()
+		time.Sleep(1 * time.Second)
+	}
 }
