@@ -1,8 +1,9 @@
 package Pointerserrors_test
 
 import (
-	Pointerserrors "aniket/Pointers_Errors"
 	"testing"
+
+	Pointerserrors "github.com/anicse37/TDD_Go/Pointers_Errors"
 )
 
 func TestBank(t *testing.T) {

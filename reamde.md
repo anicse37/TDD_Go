@@ -69,7 +69,7 @@ TDD/
 
 ## 🚀 Topics Covered
 
-| Folder                  | Description                                                |
+| Folder                   | Description                                                |
 |--------------------------|------------------------------------------------------------|
 | `Arrays/`                | Exploring array operations and writing tests for them      |
 | `Concurrency/`           | Using goroutines and channels to write concurrent programs |
@@ -88,7 +88,7 @@ TDD/
 | `Struct/`                | Defining and testing Go structs                            |
 | `Sync/`                  | Using sync, waitgroup and mutex to stop race condition     |
 | `Dockerfile`             | Containerizing the project (because why not?)              |
-
+|--------------------------|------------------------------------------------------------|
 
 > More folders and tests will be added as I progress through the chapters.
 

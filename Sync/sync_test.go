@@ -1,9 +1,10 @@
 package syncprogram_test
 
 import (
-	syncprogram "aniket/Sync"
 	"sync"
 	"testing"
+
+	syncprogram "github.com/anicse37/TDD_Go/Sync"
 )
 
 func TestSync(t *testing.T) {

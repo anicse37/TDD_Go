@@ -1,10 +1,11 @@
 package concurrency_test
 
 import (
-	concurrency "aniket/Concurrency"
 	"reflect"
 	"testing"
 	"time"
+
+	concurrency "github.com/anicse37/TDD_Go/Concurrency"
 )
 
 func MockWebsiteChecker(website string) bool {

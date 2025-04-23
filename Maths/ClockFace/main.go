@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	clockFace "aniket/Maths"
+	clockFace "github.com/anicse37/TDD_Go/Maths"
 )
 
 /*-----------------------------------------------------------------------------------------------------*/

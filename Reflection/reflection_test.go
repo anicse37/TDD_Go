@@ -1,9 +1,10 @@
 package reflection_test
 
 import (
-	reflection "aniket/Reflection"
 	"reflect"
 	"testing"
+
+	reflection "github.com/anicse37/TDD_Go/Reflection"
 )
 
 func TestReflection(t *testing.T) {
@@ -21,16 +22,16 @@ func TestReflection(t *testing.T) {
 	}{
 		{
 			"Single string passing",
-			"Aniket",
-			[]string{"Aniket"},
+			"github.com/anicse37/TDD_Go",
+			[]string{"github.com/anicse37/TDD_Go"},
 		},
 		{
 			"String passing",
 			struct {
 				Name string
 				City string
-			}{"Aniket", "Mohali"},
-			[]string{"Aniket", "Mohali"},
+			}{"github.com/anicse37/TDD_Go", "Mohali"},
+			[]string{"github.com/anicse37/TDD_Go", "Mohali"},
 		},
 		{
 			"Single int passing",
@@ -42,8 +43,8 @@ func TestReflection(t *testing.T) {
 			struct {
 				Name string
 				Age  int
-			}{"Aniket", 23},
-			[]string{"Aniket", "23"},
+			}{"github.com/anicse37/TDD_Go", 23},
+			[]string{"github.com/anicse37/TDD_Go", "23"},
 		},
 		{
 			"Slice of structure passing",
@@ -51,10 +52,10 @@ func TestReflection(t *testing.T) {
 				Name string
 				City string
 			}{
-				{"Aniket", "Mohali"},
+				{"github.com/anicse37/TDD_Go", "Mohali"},
 				{"Gtech", "Mohali"},
 			},
-			[]string{"Aniket", "Mohali", "Gtech", "Mohali"},
+			[]string{"github.com/anicse37/TDD_Go", "Mohali", "Gtech", "Mohali"},
 		},
 		{
 			"Using Functions",
@@ -66,11 +67,11 @@ func TestReflection(t *testing.T) {
 		var got []string
 		myChannel := make(chan channelStruct)
 		go func() {
-			myChannel <- channelStruct{"Aniket", 23}
+			myChannel <- channelStruct{"github.com/anicse37/TDD_Go", 23}
 			myChannel <- channelStruct{"Golang", 16}
 			close(myChannel)
 		}()
-		want := []string{"Aniket", "23", "Golang", "16"}
+		want := []string{"github.com/anicse37/TDD_Go", "23", "Golang", "16"}
 		reflection.Walk(myChannel, func(input string) {
 			got = append(got, input)
 		})
@@ -96,8 +97,8 @@ func TestReflection(t *testing.T) {
 	})
 	t.Run("with maps", func(t *testing.T) {
 		aMap := map[string]string{
-			"Aniket": "Mohali",
-			"Gtech":  "Chandigarh",
+			"github.com/anicse37/TDD_Go": "Mohali",
+			"Gtech":                      "Chandigarh",
 		}
 
 		var got []string

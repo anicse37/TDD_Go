@@ -1,11 +1,12 @@
 package selecturl_test
 
 import (
-	selecturl "aniket/Select"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 	"time"
+
+	selecturl "github.com/anicse37/TDD_Go/Select"
 )
 
 func TestSpeed(t *testing.T) {

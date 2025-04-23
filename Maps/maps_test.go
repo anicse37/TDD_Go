@@ -1,8 +1,9 @@
 package maps_test
 
 import (
-	maps "aniket/Maps"
 	"testing"
+
+	maps "github.com/anicse37/TDD_Go/Maps"
 )
 
 /*---------------------------------------------------*/

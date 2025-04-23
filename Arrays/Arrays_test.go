@@ -1,9 +1,10 @@
 package arrays_test
 
 import (
-	arrays "aniket/Arrays"
 	"reflect"
 	"testing"
+
+	arrays "github.com/anicse37/TDD_Go/Arrays"
 )
 
 func TestArray(t *testing.T) {

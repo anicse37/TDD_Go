@@ -1,8 +1,9 @@
 package integers_test
 
 import (
-	integers "aniket/Integers"
 	"testing"
+
+	integers "github.com/anicse37/TDD_Go/Integers"
 )
 
 func TestInteger(t *testing.T) {

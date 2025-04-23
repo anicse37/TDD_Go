@@ -1,10 +1,11 @@
 package clockFace_test
 
 import (
-	clockFace "aniket/Maths"
 	"math"
 	"testing"
 	"time"
+
+	clockFace "github.com/anicse37/TDD_Go/Maths"
 )
 
 func TestSecondsInRadians(t *testing.T) {

@@ -1,8 +1,9 @@
 package main_test
 
 import (
-	custom "aniket/HelloWorld"
 	"testing"
+
+	custom "github.com/anicse37/TDD_Go/HelloWorld"
 )
 
 func TestHello(t *testing.T) {

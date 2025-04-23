@@ -1,9 +1,10 @@
 package clockFace_test
 
 import (
-	clockFace "aniket/Maths"
 	"testing"
 	"time"
+
+	clockFace "github.com/anicse37/TDD_Go/Maths"
 )
 
 func TestSecondHandAtMidNight(t *testing.T) {

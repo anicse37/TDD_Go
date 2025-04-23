@@ -1,8 +1,9 @@
 package propertybasedtests_test
 
 import (
-	propertybasedtests "aniket/Property_based_tests"
 	"testing/quick"
+
+	propertybasedtests "github.com/anicse37/TDD_Go/Property_based_tests"
 
 	"fmt"
 	"testing"

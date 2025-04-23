@@ -1,8 +1,9 @@
 package iteration_test
 
 import (
-	iteration "aniket/Iteration"
 	"testing"
+
+	iteration "github.com/anicse37/TDD_Go/Iteration"
 )
 
 func TestFor(t *testing.T) {

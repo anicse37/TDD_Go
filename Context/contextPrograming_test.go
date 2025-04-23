@@ -1,12 +1,13 @@
 package contextProgram_test
 
 import (
-	contextProgram "aniket/Context"
 	"context"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 	"time"
+
+	contextProgram "github.com/anicse37/TDD_Go/Context"
 )
 
 type MockStore struct {

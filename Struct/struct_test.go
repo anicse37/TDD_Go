@@ -1,9 +1,10 @@
 package structure_test
 
 import (
-	structure "aniket/Struct"
 	"fmt"
 	"testing"
+
+	structure "github.com/anicse37/TDD_Go/Struct"
 )
 
 func TestPerimeter(t *testing.T) {
