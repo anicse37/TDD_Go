@@ -25,12 +25,27 @@ func SVGWritter(w io.Writer, t time.Time) {
 	sh := SecondHand(t)
 	mh := MinuteHand(t)
 	hh := HourHand(t)
+	text := GetClockNumbers()
 	io.WriteString(w, svgStart)
 	io.WriteString(w, bezel)
 	io.WriteString(w, secondHandTag(sh))
 	io.WriteString(w, minuteHandTag(mh))
 	io.WriteString(w, hourHandTag(hh))
+	io.WriteString(w, timeLetter(text))
+
 	io.WriteString(w, svgEnd)
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+func GetClockNumbers() string {
+	var text string
+	for i := 1; i <= 12; i++ {
+		angle := (float64(i) * math.Pi) / 6
+		x := clockCentreY + math.Sin(angle)*90
+		y := clockCentreY + 5 - math.Cos(angle)*90
+		text += fmt.Sprintf(`<text x="%f" y="%f" font-size="12" text-anchor="middle" fill="black">%d</text>`, x, y, i)
+	}
+	return text
 }
 
 /*-----------------------------------------------------------------------------------------------------*/
@@ -73,7 +88,7 @@ func MinuteInRadians(t time.Time) float64 {
 /*-----------------------------------------------------------------------------------------------------*/
 func HourHand(t time.Time) Point {
 	P := HourHandPoint(t)
-	P = Point{P.X * minuteHandLength, P.Y * minuteHandLength}
+	P = Point{P.X * hourHandLength, P.Y * hourHandLength}
 	P = Point{P.X, -P.Y}
 	P = Point{P.X + clockCentreX, P.Y + clockCentreY}
 	return P
@@ -85,7 +100,7 @@ func HourHandPoint(t time.Time) Point {
 	return Point{x, y}
 }
 func HourInRadians(t time.Time) float64 {
-	return (math.Pi / (30 / (float64(t.Hour()))))
+	return ((math.Pi / (6 / float64(t.Hour()%12))) + MinuteInRadians(t)/12)
 }
 
 /*-----------------------------------------------------------------------------------------------------*/
@@ -94,6 +109,9 @@ func secondHandTag(p Point) string {
 }
 func minuteHandTag(p Point) string {
 	return fmt.Sprintf(`<line x1="150" y1="150" x2="%f" y2="%f" style="fill:none;stroke:#000000;stroke-width:3px;"/>`, p.X, p.Y)
+}
+func timeLetter(text string) string {
+	return fmt.Sprintf("%s", text)
 }
 func hourHandTag(p Point) string {
 	return fmt.Sprintf(`<line x1="150" y1="150" x2="%f" y2="%f" style="fill:none;stroke:#000000;stroke-width:3px;"/>`, p.X, p.Y)
