@@ -7,10 +7,132 @@ Welcome to my journey of learning **Test-Driven Development (TDD)** in **Go (Gol
 This repo showcases my hands-on practice with Go fundamentals through the lens of TDD. Each directory here represents a mini-project or concept covered in the book, fully covered with tests *before* code—because writing tests first is how we roll. 😎
 
 ## Repo Structure 
-<pre> ``` TDD/ Arrays/ Arrays.go Arrays_test.go Concurrency/ concurrency.go concurrency_test.go Dependency_Injection/ dependency.go dependency_test.go HelloWorld/ home.go home_test.go Integers/ integer.go integer_test.go Iteration/ Iteration.go Iteration_test.go Maps/ maps.go maps_test.go Maths/ Clockace/ clock.svg main.go Clock.go Clock_test.go Clock_acceptance_test.go Mocking/ mocking.go mocking_test.go Pointers_Errors/ pointer.go pointer_test.go Property_based_tests/ Roman_numbers.go Roman_numbers_test.go.go Reflection/ reflection.go reflection_test.go Select/ select.go select_test.go Struct/ struct.go struct_test.go Sync/ sync.go sync_test.go Dockerfile go.mod link.txt readme.txt test.go ``` </pre>
+<details>
+  <summary><strong>📁 Arrays</strong></summary>
+
+  - Arrays.go  
+  - Arrays_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Concurrency</strong></summary>
+
+  - concurrency.go  
+  - concurrency_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Dependency_Injection</strong></summary>
+
+  - dependency.go  
+  - dependency_test.go
+</details>
+
+<details>
+  <summary><strong>📁 HelloWorld</strong></summary>
+
+  - home.go  
+  - home_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Integers</strong></summary>
+
+  - integer.go  
+  - integer_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Iteration</strong></summary>
+
+  - Iteration.go  
+  - Iteration_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Maps</strong></summary>
+
+  - maps.go  
+  - maps_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Maths</strong></summary>
+
+  <details>
+    <summary>📂 Clockace</summary>
+
+    - clock.svg  
+    - main.go
+  </details>
+
+  - Clock.go  
+  - Clock_test.go  
+  - Clock_acceptance_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Mocking</strong></summary>
+
+  - mocking.go  
+  - mocking_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Pointers_Errors</strong></summary>
+
+  - pointer.go  
+  - pointer_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Property_based_tests</strong></summary>
+
+  - Roman_numbers.go  
+  - Roman_numbers_test.go.go
+</details>
+
+<details>
+  <summary><strong>📁 Reflection</strong></summary>
+
+  - reflection.go  
+  - reflection_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Select</strong></summary>
+
+  - select.go  
+  - select_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Struct</strong></summary>
+
+  - struct.go  
+  - struct_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Sync</strong></summary>
+
+  - sync.go  
+  - sync_test.go
+</details>
+
+<details>
+  <summary><strong>📁 Root Files</strong></summary>
+
+  - Dockerfile  
+  - go.mod  
+  - link.txt  
+  - readme.txt  
+  - test.go
+</details>
+
 
 ## 🚀 Topics Covered
-|---------------------------------------------------------------------------------------|
+
 | Folder                   | Description                                                |
 |--------------------------|------------------------------------------------------------|
 | `Arrays/`                | Exploring array operations and writing tests for them      |
@@ -30,7 +152,7 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
 | `Struct/`                | Defining and testing Go structs                            |
 | `Sync/`                  | Using sync, waitgroup and mutex to stop race condition     |
 | `Dockerfile`             | Containerizing the project (because why not?)              |
-|--------------------------|------------------------------------------------------------|
+
 
 > More folders and tests will be added as I progress through the chapters.
 
