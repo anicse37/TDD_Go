@@ -9,26 +9,37 @@ import (
 )
 
 func TestNewBlogPosts(t *testing.T) {
+	const (
+		firstBody = `Title: Post 1
+Description: Description 1`
+		secondBody = `Title: Post 2
+Description: Description 2`
+	)
+
 	fs := fstest.MapFS{
-		"hello_world.md":  {Data: []byte("Title: Post 1")},
-		"hello_world2.md": {Data: []byte("Title: Post 2")},
+		"hello world.md":  {Data: []byte(firstBody)},
+		"hello-world2.md": {Data: []byte(secondBody)},
 	}
-	i := 0
-	for key, value := range fs {
-		t.Run(key, func(t *testing.T) {
-			posts, err := blogposts.NewPostsFromFS(fs)
-			if err != nil {
-				t.Fatal(err)
-			}
-			got := posts[i]
-			want := blogposts.Post{Title: string(value.Data)[7:]}
-			if !reflect.DeepEqual(got, want) {
-				t.Errorf("Got %+v || Want %+v \n", got, want)
-			}
-			if len(posts) != len(fs) {
-				t.Errorf("Got %+v || Want %v \n", len(posts), len((fs)))
-			}
-		})
-		i++
+	posts, err := blogposts.NewPostsFromFS(fs)
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if len(posts) != len(fs) {
+		t.Errorf("got %d posts, wanted %d posts", len(posts), len(fs))
+	}
+	// rest of test code cut for brevity
+	assertPost(t, posts[0], blogposts.Post{
+		Title:       "Post 1",
+		Description: "Description 1",
+	})
+
+}
+
+func assertPost(t *testing.T, got blogposts.Post, want blogposts.Post) {
+	t.Helper()
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %+v, want %+v", got, want)
 	}
 }
