@@ -7,63 +7,7 @@ Welcome to my journey of learning **Test-Driven Development (TDD)** in **Go (Gol
 This repo showcases my hands-on practice with Go fundamentals through the lens of TDD. Each directory here represents a mini-project or concept covered in the book, fully covered with tests *before* code—because writing tests first is how we roll. 😎
 
 ## Repo Structure 
-
-TDD/
-├── Arrays/
-│   ├── Arrays.go
-│   ├── Arrays_test.go
-├── Concurrency/
-│   ├── concurrency.go
-│   ├── concurrency_test.go
-├── Dependency_Injection/
-│   ├── dependency_test.go
-│   ├── dependency.go
-├── HelloWorld/
-│   ├── home.go
-│   ├── home_test.go
-├── Integers/
-│   ├── integer.go
-│   ├── integer_test.go
-├── Iteration/
-│   ├── Iteration.go
-│   ├── Iteration_test.go
-├── Maps/
-│   ├── maps.go
-│   ├── maps_test.go
-├── Maths/
-│   ├── Clockace/
-│   │    ├── clock.svg
-│   │    ├── main.go
-│   ├── Clock_acceptance_test.go
-│   ├── Clock_test.go
-│   ├── Clock.go
-├── Mocking/
-│   ├── mocking.go
-│   ├── mocking_test.go
-├── Pointers_Errors/
-│   ├── pointer.go
-│   ├── pointer_test.go
-├── Property_based_tests/
-│   ├── Roman_numbers.go
-│   ├── Roman_numbers_test.go.go
-├── Reflection/
-│   ├── reflection.go
-│   ├── reflection_test.go
-├── Select/
-│   ├── select.go
-│   ├── select_test.go
-├── Struct/
-│   ├── struct.go
-│   ├── struct_test.go
-├── Sync/
-│   ├── sync.go
-│   ├── sync_test.go
-├── Dockerfile
-├── go.mod
-├── link.txt
-├── readme.txt
-├── test.go
-
+<pre> ``` TDD/ Arrays/ Arrays.go Arrays_test.go Concurrency/ concurrency.go concurrency_test.go Dependency_Injection/ dependency.go dependency_test.go HelloWorld/ home.go home_test.go Integers/ integer.go integer_test.go Iteration/ Iteration.go Iteration_test.go Maps/ maps.go maps_test.go Maths/ Clockace/ clock.svg main.go Clock.go Clock_test.go Clock_acceptance_test.go Mocking/ mocking.go mocking_test.go Pointers_Errors/ pointer.go pointer_test.go Property_based_tests/ Roman_numbers.go Roman_numbers_test.go.go Reflection/ reflection.go reflection_test.go Select/ select.go select_test.go Struct/ struct.go struct_test.go Sync/ sync.go sync_test.go Dockerfile go.mod link.txt readme.txt test.go ``` </pre>
 
 ## 🚀 Topics Covered
 |---------------------------------------------------------------------------------------|
