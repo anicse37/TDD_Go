@@ -13,6 +13,12 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
   - Arrays.go  
   - Arrays_test.go
 </details>
+<details>
+  <summary><strong>📁 Blogposts</strong></summary>
+
+  - blogposts.go  
+  - blogposts_test.go
+</details>
 
 <details>
   <summary><strong>📁 Concurrency</strong></summary>
@@ -136,6 +142,7 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
 | Folder                   | Description                                                |
 |--------------------------|------------------------------------------------------------|
 | `Arrays/`                | Exploring array operations and writing tests for them      |
+| `Blogposts/`             | Using fstest to test and read files in memory              |
 | `Concurrency/`           | Using goroutines and channels to write concurrent programs |
 | `Context/`               | Using Context to cancel the function un no longer needed   |
 | `Dependency_Injection/`  | Understanding and applying dependency injection in Go      |
