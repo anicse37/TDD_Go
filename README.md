@@ -159,6 +159,7 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
 | `Struct/`                | Defining and testing Go structs                            |
 | `Sync/`                  | Using sync, waitgroup and mutex to stop race condition     |
 | `Dockerfile`             | Containerizing the project (because why not?)              |
+| `docker-compose.yml`     | Can containerizing multiple containers if need be          |
 
 
 > More folders and tests will be added as I progress through the chapters.
@@ -178,3 +179,14 @@ After function is finished run these comands to close the running image.
 ```bash
 
 sudo docker rmi 'testing.demo'
+```
+To run all tests via compose:
+
+```bash
+sudo docker-compose run --rm app
+```
+After function is finished run these comands to close the running image.
+
+```bash
+sudo docker rmi 'tdd.testing'
+```
