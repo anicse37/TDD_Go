@@ -2,14 +2,24 @@ package blogposts
 
 import (
 	"bufio"
+	"bytes"
 	"errors"
 	"fmt"
 	"io"
 	"io/fs"
+	"strings"
+)
+
+const (
+	titleSeparator       = "Title: "
+	desctiptionSeparator = "Description: "
+	tagsSeparator        = "Tags: "
+	bodySeparator        = "Body: "
 )
 
 type Post struct {
-	Title, Description string
+	Title, Description, Body string
+	Tags                     []string
 }
 type StubFailinfFS struct {
 }
@@ -46,12 +56,24 @@ func getPost(fileSystem fs.FS, fileName string) (Post, error) {
 func newPost(postFile io.Reader) (Post, error) {
 	scanner := bufio.NewScanner(postFile)
 
-	scanner.Scan()
-	titleLine := scanner.Text()
+	readLine := func(tagName string) string {
+		scanner.Scan()
+		return strings.TrimPrefix(scanner.Text(), tagName)
+	}
 
-	scanner.Scan()
-	descriptionLine := scanner.Text()
+	title := readLine(titleSeparator)
+	description := readLine(desctiptionSeparator)
+	tags := strings.Split(readLine(tagsSeparator), ", ")
 
-	fmt.Println(Post{Title: titleLine[7:], Description: descriptionLine[13:]})
-	return Post{Title: titleLine[7:], Description: descriptionLine[13:]}, nil
+	buf := bytes.Buffer{}
+	for scanner.Scan() {
+		fmt.Fprintln(&buf, scanner.Text())
+	}
+	body := strings.TrimSuffix(buf.String(), "/n")
+	return Post{
+		Title:       title,
+		Description: description,
+		Tags:        tags,
+		Body:        body[6:],
+	}, nil
 }
