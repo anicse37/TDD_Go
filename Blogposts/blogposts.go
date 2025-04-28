@@ -3,13 +3,13 @@ package blogposts
 import (
 	"bufio"
 	"errors"
+	"fmt"
 	"io"
 	"io/fs"
 )
 
 type Post struct {
-	Title       string
-	Description string
+	Title, Description string
 }
 type StubFailinfFS struct {
 }
@@ -21,6 +21,7 @@ func (s StubFailinfFS) Open(name string) (fs.File, error) {
 func NewPostsFromFS(fileSystem fs.FS) ([]Post, error) {
 	dir, err := fs.ReadDir(fileSystem, ".")
 	if err != nil {
+
 		return nil, err
 	}
 	var posts []Post
@@ -30,6 +31,7 @@ func NewPostsFromFS(fileSystem fs.FS) ([]Post, error) {
 			return nil, err
 		}
 		posts = append(posts, post)
+
 	}
 	return posts, nil
 }
@@ -50,5 +52,6 @@ func newPost(postFile io.Reader) (Post, error) {
 	scanner.Scan()
 	descriptionLine := scanner.Text()
 
+	fmt.Println(Post{Title: titleLine[7:], Description: descriptionLine[13:]})
 	return Post{Title: titleLine[7:], Description: descriptionLine[13:]}, nil
 }

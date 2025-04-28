@@ -8,32 +8,39 @@ import (
 	blogposts "github.com/anicse37/TDD_Go"
 )
 
-func TestNewBlogPosts(t *testing.T) {
-	const (
-		firstBody = `Title: Post 1
+const (
+	firstBody = `Title: Post 1
 Description: Description 1`
-		secondBody = `Title: Post 2
+	secondBody = `Title: Post 2
 Description: Description 2`
-	)
+)
 
-	fs := fstest.MapFS{
-		"hello world.md":  {Data: []byte(firstBody)},
-		"hello-world2.md": {Data: []byte(secondBody)},
-	}
-	posts, err := blogposts.NewPostsFromFS(fs)
+func TestNewBlogPosts(t *testing.T) {
+	var i int
+	for i < 2 {
 
-	if err != nil {
-		t.Fatal(err)
-	}
+		fs := fstest.MapFS{
+			"hello-world.md":  {Data: []byte(firstBody)},
+			"hello-world2.md": {Data: []byte(secondBody)},
+		}
+		posts, err := blogposts.NewPostsFromFS(fs)
 
-	if len(posts) != len(fs) {
-		t.Errorf("got %d posts, wanted %d posts", len(posts), len(fs))
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		if len(posts) != len(fs) {
+			t.Errorf("got %d posts, wanted %d posts", len(posts), len(fs))
+		}
+		// rest of test code cut for brevity
+		want := []blogposts.Post{
+			{Title: "Post 1", Description: "Description 1"},
+			{Title: "Post 2", Description: "Description 2"},
+		}
+
+		assertPost(t, posts[i], want[i])
+		i++
 	}
-	// rest of test code cut for brevity
-	assertPost(t, posts[0], blogposts.Post{
-		Title:       "Post 1",
-		Description: "Description 1",
-	})
 
 }
 
