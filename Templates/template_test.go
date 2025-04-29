@@ -1,17 +1,17 @@
-package template_test
+package blogrenderer_test
 
 import (
 	"bytes"
 	"testing"
 
-	template "github.com/anicse37/TDD_Go/Templates"
+	blogrenderer "github.com/anicse37/TDD_Go/Templates"
 )
 
 func TestTemplateing(t *testing.T) {
 	var (
-		aPost = template.Post{
+		aPost = blogrenderer.Post{
 			Title:       "Title of Index",
-			Description: "This is the Description of this website's first page",
+			Description: "This is the Description of this websites first page",
 			Tags:        []string{"website", "tdd"},
 			Body:        "This is the bosy of the website, for it contains all the information",
 		}
@@ -19,7 +19,7 @@ func TestTemplateing(t *testing.T) {
 
 	t.Run("For Single functions", func(t *testing.T) {
 		buf := bytes.Buffer{}
-		err := template.Render(&buf, aPost)
+		err := blogrenderer.Render(&buf, aPost)
 
 		if err != nil {
 			t.Fatal(err)
@@ -27,7 +27,7 @@ func TestTemplateing(t *testing.T) {
 
 		got := buf.String()
 		want := `<h1>Title of Index</h1>
-<p>This is the Description of this website's first page</p>
+<p>This is the Description of this websites first page</p>
 Tags: <ul><li>website</li><li>tdd</li></ul>`
 		if got != want {
 			t.Errorf("got '%s' want '%s'", got, want)
