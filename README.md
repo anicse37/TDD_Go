@@ -127,7 +127,6 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
 </details>
 
 <details>
-  <summary><strong>📁 Root Files</strong></summary>
 
   - Dockerfile  
   - go.mod  
