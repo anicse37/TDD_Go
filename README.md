@@ -32,6 +32,13 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
 
   - dependency.go  
   - dependency_test.go
+</details> 
+
+<details>
+  <summary><strong>📁 Generics</strong></summary>
+
+  - generics.go  
+  - generics_test.go
 </details>
 
 <details>
@@ -125,6 +132,11 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
   - sync.go  
   - sync_test.go
 </details>
+  <summary><strong>📁 Templates</strong></summary>
+
+  - template.go  
+  - template_test.go
+</details>
 
 <details>
 
@@ -145,6 +157,7 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
 | `Concurrency/`           | Using goroutines and channels to write concurrent programs |
 | `Context/`               | Using Context to cancel the function un no longer needed   |
 | `Dependency_Injection/`  | Understanding and applying dependency injection in Go      |
+| `Generics/`              | Multiple types of data within same functions using generics|
 | `HelloWorld/`            | The humble beginning: Hello World test                     |
 | `Integers/`              | Adding integers and writing simple tests                   |
 | `Iteration/`             | Practicing loops with TDD                                  |
