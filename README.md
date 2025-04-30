@@ -158,6 +158,7 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
 | `Select/`                | Handling multiple channel operations with the `select`     |
 | `Struct/`                | Defining and testing Go structs                            |
 | `Sync/`                  | Using sync, waitgroup and mutex to stop race condition     |
+| `Templates/`             | HTML templating for rendering pages with reusable layouts  |
 | `Dockerfile`             | Containerizing the project (because why not?)              |
 | `docker-compose.yml`     | Can containerizing multiple containers if need be          |
 

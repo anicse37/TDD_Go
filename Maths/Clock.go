@@ -82,7 +82,7 @@ func MinuteHandPoint(t time.Time) Point {
 	return Point{x, y}
 }
 func MinuteInRadians(t time.Time) float64 {
-	return (math.Pi / (30 / (float64(t.Minute()))))
+	return ((math.Pi / (30 / (float64(t.Minute())))) + (SecondsInRadians(t) / 60))
 }
 
 /*-----------------------------------------------------------------------------------------------------*/
