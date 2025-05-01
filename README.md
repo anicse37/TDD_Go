@@ -12,6 +12,8 @@ This repo showcases my hands-on practice with Go fundamentals through the lens o
 
   - Arrays.go  
   - Arrays_test.go
+  - Reduce.go  
+  - Reduce_test.go
 </details>
 <details>
   <summary><strong>📁 Blogposts</strong></summary>
