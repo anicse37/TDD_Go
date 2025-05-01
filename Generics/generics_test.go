@@ -35,6 +35,7 @@ func TestStack(t *testing.T) {
 		AssertEqual(t, value, 19)
 		AssertTrue(t, myStackOfInts.IsEmpty())
 	})
+	/*---------------------------------------------------*/
 
 	t.Run("Stack of Strings", func(t *testing.T) {
 		myStackOfStrings := new(generics.StackOfStrings)
@@ -51,6 +52,29 @@ func TestStack(t *testing.T) {
 		AssertEqual(t, value, "19")
 		AssertTrue(t, myStackOfStrings.IsEmpty())
 	})
+	/*---------------------------------------------------*/
+	t.Run("Using Stack[int]", func(t *testing.T) {
+		myStackOfInts := generics.NewStack[int]()
+
+		myStackOfInts.Push(19)
+		myStackOfInts.Push(84)
+		numb1, _ := myStackOfInts.Pop()
+		numb2, _ := myStackOfInts.Pop()
+
+		AssertEqual(t, numb1+numb2, 103)
+	})
+	/*---------------------------------------------------*/
+	t.Run("Using Stack[string]", func(t *testing.T) {
+		myStackOfInts := generics.NewStack[string]()
+
+		myStackOfInts.Push("19")
+		myStackOfInts.Push("84")
+		numb1, _ := myStackOfInts.Pop()
+		numb2, _ := myStackOfInts.Pop()
+
+		AssertEqual(t, numb1+numb2, "8419")
+	})
+	/*---------------------------------------------------*/
 }
 
 /*-------------------------------------------------------*/
